@@ -1,0 +1,565 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Mostafa Nouri – Portfolio</title>
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=DM+Sans:ital,wght@0,300;0,400;0,500;1,300&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --bg: #0a0a0f;
+    --surface: #111118;
+    --card: #16161f;
+    --border: #2a2a38;
+    --accent: #00e5ff;
+    --accent2: #7c3aed;
+    --text: #e8e8f0;
+    --muted: #6b6b80;
+    --white: #ffffff;
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  body {
+    background: var(--bg);
+    color: var(--text);
+    font-family: 'DM Sans', sans-serif;
+    font-weight: 300;
+    line-height: 1.6;
+    overflow-x: hidden;
+  }
+
+  /* NOISE TEXTURE */
+  body::before {
+    content: '';
+    position: fixed;
+    inset: 0;
+    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.04'/%3E%3C/svg%3E");
+    pointer-events: none;
+    z-index: 0;
+    opacity: 0.4;
+  }
+
+  /* HEADER */
+  header {
+    position: relative;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 80px 60px;
+    overflow: hidden;
+  }
+
+  header::after {
+    content: '';
+    position: absolute;
+    top: -200px;
+    right: -200px;
+    width: 600px;
+    height: 600px;
+    background: radial-gradient(circle, rgba(0,229,255,0.08) 0%, transparent 70%);
+    pointer-events: none;
+  }
+
+  .header-tag {
+    font-family: 'DM Sans', sans-serif;
+    font-size: 11px;
+    letter-spacing: 4px;
+    text-transform: uppercase;
+    color: var(--accent);
+    margin-bottom: 24px;
+    opacity: 0;
+    animation: fadeUp 0.6s ease forwards 0.1s;
+  }
+
+  h1 {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: clamp(72px, 12vw, 140px);
+    line-height: 0.9;
+    letter-spacing: 2px;
+    color: var(--white);
+    opacity: 0;
+    animation: fadeUp 0.7s ease forwards 0.2s;
+  }
+
+  h1 span {
+    color: var(--accent);
+    display: block;
+  }
+
+  .header-sub {
+    margin-top: 32px;
+    font-size: 16px;
+    color: var(--muted);
+    max-width: 420px;
+    font-weight: 300;
+    line-height: 1.7;
+    opacity: 0;
+    animation: fadeUp 0.7s ease forwards 0.35s;
+  }
+
+  .header-links {
+    display: flex;
+    gap: 32px;
+    margin-top: 48px;
+    opacity: 0;
+    animation: fadeUp 0.7s ease forwards 0.5s;
+  }
+
+  .header-links a {
+    color: var(--muted);
+    text-decoration: none;
+    font-size: 13px;
+    letter-spacing: 1px;
+    transition: color 0.2s;
+  }
+  .header-links a:hover { color: var(--accent); }
+
+  .scroll-hint {
+    position: absolute;
+    bottom: 40px;
+    left: 60px;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    font-size: 11px;
+    letter-spacing: 3px;
+    color: var(--muted);
+    text-transform: uppercase;
+    opacity: 0;
+    animation: fadeUp 0.7s ease forwards 0.7s;
+  }
+
+  .scroll-line {
+    width: 40px;
+    height: 1px;
+    background: var(--muted);
+  }
+
+  /* SECTIONS */
+  section {
+    padding: 100px 60px;
+    position: relative;
+  }
+
+  .section-label {
+    font-size: 10px;
+    letter-spacing: 5px;
+    text-transform: uppercase;
+    color: var(--accent);
+    margin-bottom: 16px;
+  }
+
+  h2 {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: clamp(40px, 6vw, 72px);
+    color: var(--white);
+    line-height: 1;
+    margin-bottom: 60px;
+  }
+
+  /* ABOUT */
+  .about-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 60px;
+    align-items: start;
+  }
+
+  .about-text p {
+    font-size: 16px;
+    color: var(--muted);
+    margin-bottom: 16px;
+    line-height: 1.8;
+  }
+
+  .about-text p strong {
+    color: var(--text);
+    font-weight: 500;
+  }
+
+  .skills-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 12px;
+  }
+
+  .skill-chip {
+    padding: 10px 16px;
+    border: 1px solid var(--border);
+    background: var(--card);
+    font-size: 12px;
+    letter-spacing: 1px;
+    color: var(--text);
+    border-radius: 4px;
+  }
+
+  /* AWARDS BAR */
+  .awards-strip {
+    background: var(--card);
+    border-top: 1px solid var(--border);
+    border-bottom: 1px solid var(--border);
+    padding: 40px 60px;
+    display: flex;
+    gap: 60px;
+    overflow-x: auto;
+    scrollbar-width: none;
+  }
+
+  .award-item {
+    min-width: 200px;
+  }
+
+  .award-medal {
+    font-size: 20px;
+    margin-bottom: 8px;
+  }
+
+  .award-title {
+    font-size: 13px;
+    font-weight: 500;
+    color: var(--text);
+    line-height: 1.4;
+  }
+
+  .award-org {
+    font-size: 11px;
+    color: var(--muted);
+    margin-top: 4px;
+  }
+
+  /* PROJECTS */
+  .projects-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
+  }
+
+  .project-card {
+    background: var(--card);
+    padding: 40px;
+    border: 1px solid var(--border);
+    position: relative;
+    overflow: hidden;
+    transition: border-color 0.3s;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+  }
+
+  .project-card:hover {
+    border-color: var(--accent);
+  }
+
+  .project-gallery {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+    gap: 12px;
+    margin-bottom: 24px;
+  }
+
+  .project-gallery img {
+    width: 100%;
+    height: 140px;
+    object-fit: cover;
+    border-radius: 4px;
+    border: 1px solid var(--border);
+    background: var(--bg);
+  }
+
+  .project-gallery img.main-gif {
+    grid-column: span 2;
+    height: 200px;
+  }
+
+  .project-number {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 80px;
+    color: var(--border);
+    position: absolute;
+    top: 16px;
+    right: 24px;
+    line-height: 1;
+    pointer-events: none;
+    opacity: 0.5;
+  }
+
+  .project-tag {
+    font-size: 10px;
+    letter-spacing: 3px;
+    color: var(--accent);
+    text-transform: uppercase;
+    margin-bottom: 16px;
+  }
+
+  .project-title {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 32px;
+    color: var(--white);
+    line-height: 1.1;
+    margin-bottom: 16px;
+  }
+
+  .project-desc {
+    font-size: 14px;
+    color: var(--muted);
+    line-height: 1.7;
+    margin-bottom: 24px;
+  }
+
+  .project-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+  }
+
+  .ptag {
+    font-size: 10px;
+    padding: 4px 10px;
+    border: 1px solid var(--border);
+    color: var(--muted);
+    letter-spacing: 1px;
+    border-radius: 2px;
+  }
+
+  /* EXPERIENCE */
+  .exp-list {
+    display: flex;
+    flex-direction: column;
+    gap: 0;
+  }
+
+  .exp-item {
+    display: grid;
+    grid-template-columns: 200px 1fr;
+    gap: 40px;
+    padding: 36px 0;
+    border-bottom: 1px solid var(--border);
+  }
+
+  .exp-item:first-child { border-top: 1px solid var(--border); }
+
+  .exp-period {
+    font-size: 12px;
+    color: var(--muted);
+    padding-top: 4px;
+    letter-spacing: 1px;
+  }
+
+  .exp-role {
+    font-size: 18px;
+    font-weight: 500;
+    color: var(--white);
+  }
+
+  .exp-company {
+    font-size: 13px;
+    color: var(--accent);
+    margin-bottom: 8px;
+  }
+
+  .exp-detail {
+    font-size: 14px;
+    color: var(--muted);
+    line-height: 1.7;
+  }
+
+  /* FOOTER */
+  footer {
+    padding: 60px;
+    border-top: 1px solid var(--border);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  .footer-name {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 28px;
+    color: var(--white);
+  }
+
+  .footer-contact {
+    text-align: right;
+  }
+
+  .footer-contact a {
+    display: block;
+    color: var(--muted);
+    text-decoration: none;
+    font-size: 13px;
+    line-height: 2;
+    transition: color 0.2s;
+  }
+
+  .footer-contact a:hover { color: var(--accent); }
+
+  @keyframes fadeUp {
+    from { opacity: 0; transform: translateY(24px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+
+  @media (max-width: 768px) {
+    header, section { padding: 60px 24px; }
+    .about-grid, .projects-grid { grid-template-columns: 1fr; }
+    .project-gallery img.main-gif { grid-column: span 1; }
+    .exp-item { grid-template-columns: 1fr; gap: 8px; }
+    .awards-strip { padding: 32px 24px; }
+    footer { flex-direction: column; gap: 24px; text-align: center; }
+    .footer-contact { text-align: center; }
+    .scroll-hint { left: 24px; }
+  }
+</style>
+</head>
+<body>
+
+<header>
+  <div class="header-tag">Manufacturing Engineer · Portfolio</div>
+  <h1>Mostafa<span>Nouri</span></h1>
+  <p class="header-sub">Engineering student, maker, and award-winning founder. I build hardware from the ground up — from recycled power banks to autonomous drone charging systems.</p>
+  <div class="header-links">
+    <a href="mailto:mostafanouri0710@gmail.com">mostafanouri0710@gmail.com</a>
+    <a href="#">+46 76 260 3087</a>
+    <a href="https://linkedin.com/in/mostafa-nouri-a66600328" target="_blank">LinkedIn</a>
+  </div>
+  <div class="scroll-hint">
+    <div class="scroll-line"></div>
+    Scroll to explore
+  </div>
+</header>
+
+<section>
+  <div class="section-label">About</div>
+  <h2>Built to Build</h2>
+  <div class="about-grid">
+    <div class="about-text">
+      <p>I've been fascinated by electronics since I was a kid. <strong>At 13, I built my first PC from scratch</strong> — that was the moment I realized I wanted to spend my life making things work. Since then I've been tinkering constantly: disassembling, reverse-engineering, prototyping.</p>
+      <p>Now finishing my Technology Programme at <strong>NTI Gymnasiet</strong> (graduating June 2026), I combine that hands-on instinct with formal engineering knowledge in hardware development, CAD design, and battery systems.</p>
+      <p>I'm driven by a simple belief: <strong>great hardware should be clever, sustainable, and built to last.</strong></p>
+    </div>
+    <div>
+      <p style="font-size:12px; letter-spacing:2px; color:var(--accent); text-transform:uppercase; margin-bottom:16px;">Core Skills</p>
+      <div class="skills-grid">
+        <div class="skill-chip">Hardware Development</div>
+        <div class="skill-chip">CAD / 3D Modelling</div>
+        <div class="skill-chip">Battery Technology</div>
+        <div class="skill-chip">PCB Design</div>
+        <div class="skill-chip">Circular Economy</div>
+        <div class="skill-chip">Prototyping</div>
+        <div class="skill-chip">Systems Engineering</div>
+        <div class="skill-chip">Leadership</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="awards-strip">
+  <div class="award-item">
+    <div class="award-medal">🥈</div>
+    <div class="award-title">Innovator of the Year — Sweden</div>
+    <div class="award-org">Unga Innovatörer · May 2025</div>
+  </div>
+  <div class="award-item">
+    <div class="award-medal">🥈</div>
+    <div class="award-title">Innovator of the Year — Stockholm</div>
+    <div class="award-org">Ung Företagsamhet · Mar 2025</div>
+  </div>
+  <div class="award-item">
+    <div class="award-medal">🥈</div>
+    <div class="award-title">Craftsperson of the Year</div>
+    <div class="award-org">Ung Företagsamhet · Mar 2025</div>
+  </div>
+  <div class="award-item">
+    <div class="award-medal">🥉</div>
+    <div class="award-title">Thinker of the Year</div>
+    <div class="award-org">Ung Företagsamhet · Mar 2025</div>
+  </div>
+  <div class="award-item">
+    <div class="award-medal">🥉</div>
+    <div class="award-title">Social Sustainability of the Year</div>
+    <div class="award-org">Ung Företagsamhet · Mar 2025</div>
+  </div>
+</div>
+
+<section>
+  <div class="section-label">Projects</div>
+  <h2>Featured Work</h2>
+  <div class="projects-grid">
+
+    <div class="project-card">
+      <div class="project-number">01</div>
+      <div class="project-gallery">
+        <img src="laddningsstaion med plattor .gif" alt="Drone landing animation" class="main-gif">
+        <img src="PCB model 2.2mm v4.png" alt="PCB Model Bottom View">
+        <img src="PCB model 2.2mm v4 1.png" alt="PCB Model Top View">
+      </div>
+      <div class="project-tag">Autonomous Systems · Ongoing</div>
+      <div class="project-title">Drone Charging Station</div>
+      <p class="project-desc">Designing and building a fully autonomous charging system for AI-powered drones. A custom adapter mounts on the drone's underside with precision pogo pins that make electrical contact the moment the drone lands on the charging pad — no manual plug-in required.</p>
+      <div class="project-tags">
+        <span class="ptag">Pogo Pin Connectors</span>
+        <span class="ptag">PCB Design</span>
+        <span class="ptag">CAD / SolidWorks</span>
+        <span class="ptag">Power Electronics</span>
+      </div>
+    </div>
+
+    <div class="project-card">
+      <div class="project-number">02</div>
+      <div class="project-gallery">
+        <img src="power bank animation.gif" alt="Power bank assembly animation" class="main-gif">
+        <img src="image_c21437.png" alt="Sustainable Charge Powerbank">
+        <img src="image_c21433.png" alt="Internal components and casing">
+      </div>
+      <div class="project-tag">Product Design · Award-Winning</div>
+      <div class="project-title">Sustainable Charge UF</div>
+      <p class="project-desc">Founded a student company producing handcrafted power banks made entirely from recycled e-cigarette batteries. Handled everything from cell extraction and BMS integration to 3D-printed enclosures and branding. Won 5 national and regional awards.</p>
+      <div class="project-tags">
+        <span class="ptag">Li-ion Cell Reuse</span>
+        <span class="ptag">BMS Integration</span>
+        <span class="ptag">3D Printing</span>
+        <span class="ptag">Circular Design</span>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<section style="padding-top: 0;">
+  <div class="section-label">Experience</div>
+  <h2>Where I've Worked</h2>
+  <div class="exp-list">
+
+    <div class="exp-item">
+      <div class="exp-period">Jun 2025 – Present</div>
+      <div>
+        <div class="exp-role">Drone Systems Engineer</div>
+        <div class="exp-company">RR Consulting and Software AB · Part-time</div>
+        <p class="exp-detail">Designing autonomous charging stations for AI-powered drones used in industrial and military applications. Own the full hardware architecture and build process, collaborating cross-functionally to iterate rapidly on prototypes. [cite: 8, 9, 10, 11]</p>
+      </div>
+    </div>
+
+    <div class="exp-item">
+      <div class="exp-period">Jul 2024 – Aug 2025</div>
+      <div>
+        <div class="exp-role">CEO & Founder</div>
+        <div class="exp-company">Sustainable Charge UF · Student Company</div>
+        <p class="exp-detail">Led all aspects of a student company — product design, manufacturing, sustainability strategy, and public pitching. Took home five awards including 2nd place at the Sweden national finals. [cite: 14, 15, 16, 17, 18]</p>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<footer>
+  <div class="footer-name">Mostafa Nouri</div>
+  <div class="footer-contact">
+    <a href="mailto:mostafanouri0710@gmail.com">mostafanouri0710@gmail.com</a>
+    <a href="#">+46 76 260 3087</a>
+    <a href="https://linkedin.com/in/mostafa-nouri-a66600328" target="_blank">LinkedIn Profile</a>
+  </div>
+</footer>
+
+</body>
+</html>
