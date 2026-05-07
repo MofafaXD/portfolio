@@ -121,6 +121,7 @@
     border-radius: 24px;
     object-fit: cover;
     border: 1px solid var(--border);
+    box-shadow: 0 20px 40px rgba(0,0,0,0.5);
   }
 
   /* CONTACT LINKS */
@@ -148,7 +149,7 @@
   .image-grid img { width: 100%; height: 100%; object-fit: cover; display: block; transition: 0.5s; }
   .image-grid .main-feature { grid-column: span 2; aspect-ratio: 16/9; }
   .img-wrapper:hover img { transform: scale(1.05); }
-  .project-title { font-family: 'Bebas Neue', sans-serif; font-size: 40px; margin-bottom: 15px; }
+  .project-title { font-family: 'Bebas Neue', sans-serif; font-size: 40px; margin-bottom: 15px; color: var(--accent); }
 
   /* SCROLLABLE AWARDS */
   .awards-track {
@@ -166,13 +167,16 @@
     border-radius: 12px;
     border: 1px solid var(--border);
     flex-shrink: 0;
+    transition: 0.3s;
   }
+  .award-card:hover { border-color: var(--accent); transform: translateY(-5px); }
 
   /* BUTTONS */
   .btn-cv { 
     display: inline-block; padding: 18px 40px; background: var(--accent); color: var(--bg); 
     font-weight: bold; text-decoration: none; border-radius: 4px; transition: 0.3s;
   }
+  .btn-cv:hover { filter: brightness(1.1); box-shadow: 0 10px 20px rgba(0,229,255,0.2); }
 
   /* RESPONSIVE */
   @media (max-width: 1024px) {
@@ -201,17 +205,17 @@
     <h1>Mostafa<span>Nouri</span></h1>
     
     <div class="header-sub">
-      <p data-lang="sv">Fokuserad på nästa generations autonoma system och hållbar hårdvaruarkitektur. Prisbelönt innovatör med expertis inom CAD och batteriteknik.</p>
-      <p data-lang="en">Focused on next-generation autonomous systems and sustainable hardware architecture. Award-winning innovator with expertise in CAD and battery tech.</p>
+      <p data-lang="sv">Jag brinner för att bygga framtidens autonoma maskiner. Med en bakgrund inom både prisbelönt hållbarhetsinnovation och avancerad drönarhårdvara, fokuserar jag på att lösa komplexa tekniska utmaningar med smart design.</p>
+      <p data-lang="en">I am passionate about building the autonomous machines of tomorrow. With a background in award-winning sustainable innovation and advanced drone hardware, I focus on solving complex technical challenges through smart design.</p>
     </div>
 
     <div class="expertise-grid">
-      <div class="exp-pill" data-lang="sv">Hårdvaruutveckling</div>
-      <div class="exp-pill" data-lang="en">Hardware Development</div>
+      <div class="exp-pill" data-lang="sv">Hårdvarudesign</div>
+      <div class="exp-pill" data-lang="en">Hardware Design</div>
       <div class="exp-pill" data-lang="sv">CAD & Prototyping</div>
       <div class="exp-pill" data-lang="en">CAD & Prototyping</div>
-      <div class="exp-pill" data-lang="sv">Batteriarkitektur</div>
-      <div class="exp-pill" data-lang="en">Battery Architecture</div>
+      <div class="exp-pill" data-lang="sv">Batteriteknik</div>
+      <div class="exp-pill" data-lang="en">Battery Technology</div>
       <div class="exp-pill" data-lang="sv">Autonoma System</div>
       <div class="exp-pill" data-lang="en">Autonomous Systems</div>
     </div>
@@ -231,10 +235,10 @@
 </header>
 
 <section id="projects">
-  <div class="section-label" data-lang="sv">Projekt</div>
-  <div class="section-label" data-lang="en">Projects</div>
-  <h2 data-lang="sv">Teknisk Portfölj</h2>
-  <h2 data-lang="en">Technical Portfolio</h2>
+  <div class="section-label" data-lang="sv">Vad jag gör</div>
+  <div class="section-label" data-lang="en">What I do</div>
+  <h2 data-lang="sv">Utvalda Projekt</h2>
+  <h2 data-lang="en">Selected Projects</h2>
   
   <div class="project-item">
     <div class="image-grid">
@@ -244,20 +248,20 @@
     </div>
     <div class="project-info">
       <h3 class="project-title">Drone Charging Station</h3>
-      <p data-lang="sv">Att få drönare att landa och ladda helt autonomt kräver precision. Jag designar laddningsstationer från grunden, där jag fokuserar på att bygga en robust mekanisk arkitektur och ett effektivt laddningssystem via pogo-pins. Målet är att skapa en lösning som fungerar sömlöst för både industriella och militära drönarsystem utan behov av mänsklig handpåläggning.</p>
-      <p data-lang="en">Making drones land and charge fully autonomously requires extreme precision. I design charging stations from scratch, focusing on building a robust mechanical architecture and an efficient pogo-pin docking system. The goal is to create a seamless solution for both industrial and military drone systems that operates entirely without human intervention.</p>
+      <p data-lang="sv">Att få en drönare att landa är en sak, men att få den att ladda helt utan mänsklig hjälp är den riktiga utmaningen. I det här projektet bygger jag autonoma laddningsstationer för industriellt bruk. Jag ansvarar för hela den tekniska arkitekturen – från det mekaniska chassit till det specialbyggda pogo-pin-systemet som ser till att kraftöverföringen sker säkert och effektivt varje gång.</p>
+      <p data-lang="en">Landing a drone is one thing, but making it charge without any human assistance is the real challenge. In this project, I am building autonomous charging stations for industrial use. I handle the entire technical architecture – from the mechanical chassis to the custom-built pogo-pin system that ensures safe and efficient power transfer every single time.</p>
     </div>
   </div>
 
   <div class="project-item">
     <div class="project-info">
       <h3 class="project-title">Sustainable Charge UF</h3>
-      <p data-lang="sv">Varför kasta batterier som fortfarande har liv kvar? Genom Sustainable Charge UF tog jag fram handgjorda powerbanks byggda av återvunna battericeller från e-cigaretter. Det här projektet handlade inte bara om teknik, utan om att bevisa att cirkulär ekonomi fungerar i praktiken. Arbetet belönades med fem nationella och regionala priser för sin innovation och hantverksskicklighet.</p>
-      <p data-lang="en">Why discard batteries that still have life left? Through Sustainable Charge UF, I developed handcrafted power banks using recycled battery cells from e-cigarettes. This project wasn't just about engineering—it was about proving that a circular economy works in practice. The initiative was recognized with five national and regional awards for its innovation and craftsmanship.</p>
+      <p data-lang="sv">Idén var enkel men kraftfull: varför slänga fungerande battericeller bara för att en e-cigarett är slut? Som VD för Sustainable Charge UF ledde jag arbetet med att ta fram handgjorda powerbanks av återvunnet material. Det här projektet bevisade att hållbarhet och teknik kan gå hand i hand, och resulterade i hela fem utmärkelser, bland annat en silverplats i SM för Ung Företagsamhet.</p>
+      <p data-lang="en">The idea was simple yet powerful: why throw away perfectly good battery cells just because an e-cigarette is empty? As CEO of Sustainable Charge UF, I led the development of handcrafted power banks made from recycled materials. This project proved that sustainability and technology can work together, resulting in five awards, including a silver medal at the Swedish national finals.</p>
       <br>
       <a href="https://ungainnovatorer.se/vinnare/sustainable-charge-powerbank" target="_blank" style="color:var(--accent); text-decoration:none; font-weight:bold;">
-        <span data-lang="sv">Läs vinnarintervjun →</span>
-        <span data-lang="en">Read winner interview →</span>
+        <span data-lang="sv">Se vinnarintervjun här →</span>
+        <span data-lang="en">View winner interview →</span>
       </a>
     </div>
     <div class="image-grid">
@@ -269,12 +273,13 @@
 </section>
 
 <section style="background: var(--surface);">
-  <div class="section-label">Merits</div>
-  <h2 data-lang="sv">Erkännanden</h2>
-  <h2 data-lang="en">Recognitions</h2>
+  <div class="section-label" data-lang="sv">Erkännanden</div>
+  <div class="section-label" data-lang="en">Recognitions</div>
+  <h2 data-lang="sv">Utmärkelser</h2>
+  <h2 data-lang="en">Awards</h2>
   <div class="awards-track">
     <div class="award-card">🥈 <b data-lang="sv">2:a plats: Årets Innovatör (Sverige)</b><b data-lang="en">2nd Place: Innovator of the Year (Sweden)</b><br><small>Unga Innovatörer 2025</small></div>
-    <div class="award-card">🥈 <b data-lang="sv">2:a plats: Årets Innovatör (Sthlm)</b><b data-lang="en">2nd Place: Innovator of the Year (Sthlm)</b><br><small>UF 2025</small></div>
+    <div class="award-card">🥈 <b data-lang="sv">2:a plats: Årets Innovatör (Sthlm)</b><b data-lang="en">2nd Place: Innovator of the Year (Stockholm)</b><br><small>UF 2025</small></div>
     <div class="award-card">🥈 <b data-lang="sv">2:a plats: Årets Hantverkare</b><b data-lang="en">2nd Place: Craftsperson of the Year</b><br><small>UF 2025</small></div>
     <div class="award-card">🥉 <b data-lang="sv">3:e plats: Årets Nytänkare</b><b data-lang="en">3rd Place: Thinker of the Year</b><br><small>UF 2025</small></div>
     <div class="award-card">🥉 <b data-lang="sv">3:e plats: Social Hållbarhet</b><b data-lang="en">3rd Place: Social Sustainability</b><br><small>UF 2025</small></div>
@@ -282,9 +287,11 @@
 </section>
 
 <section style="text-align: center;">
-  <h2 data-lang="sv">Vill du prata teknik eller samarbete?</h2>
-  <h2 data-lang="en">Let's talk tech or collaboration</h2>
-  <a href="Mostafa_Nouri_CV_Eng.pdf" download class="btn-cv">
+  <h2 data-lang="sv">Vill du veta mer?</h2>
+  <h2 data-lang="en">Want to know more?</h2>
+  <p style="margin-bottom: 30px; color: var(--muted);" data-lang="sv">Jag letar alltid efter nya spännande utmaningar inom hårdvara och teknik.</p>
+  <p style="margin-bottom: 30px; color: var(--muted);" data-lang="en">I'm always looking for new exciting challenges in hardware and engineering.</p>
+  <a href="Mostafa_Nouri_CV_English (1).pdf" download class="btn-cv">
     <span data-lang="sv">Ladda ner mitt CV (PDF)</span>
     <span data-lang="en">Download my CV (PDF)</span>
   </a>
