@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Mostafa Nouri | Drone Systems Engineer</title>
+<title>Mostafa Nouri | Portfolio</title>
 
 <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🛸</text></svg>">
 
@@ -52,7 +52,7 @@
     font-size: 12px;
     font-weight: bold;
     border-radius: 20px;
-    transition: all 0.3s;
+    transition: 0.3s;
   }
   .lang-btn.active { background: var(--accent); color: var(--bg); }
 
@@ -89,7 +89,7 @@
     margin-bottom: 40px;
   }
 
-  /* EXPERTISE GRID (Filling PC space) */
+  /* EXPERTISE GRID */
   .expertise-grid {
     display: grid;
     grid-template-columns: 1fr 1fr;
@@ -109,7 +109,6 @@
   .hero-visual {
     display: flex;
     justify-content: center;
-    position: relative;
   }
   .profile-container {
     position: relative;
@@ -122,15 +121,6 @@
     border-radius: 24px;
     object-fit: cover;
     border: 1px solid var(--border);
-  }
-  .profile-container::after {
-    content: '';
-    position: absolute;
-    inset: -10px;
-    border: 2px solid var(--accent);
-    border-radius: 30px;
-    z-index: -1;
-    opacity: 0.2;
   }
 
   /* CONTACT LINKS */
@@ -145,12 +135,6 @@
     background: none; border: none; font-family: inherit;
   }
   .contact-link:hover { color: var(--accent); }
-  .copy-tooltip {
-    position: absolute; bottom: -25px; left: 50%; transform: translateX(-50%);
-    background: var(--accent); color: var(--bg); font-size: 10px;
-    padding: 2px 8px; border-radius: 4px; opacity: 0; transition: 0.3s;
-  }
-  .copy-tooltip.show { opacity: 1; }
 
   /* SECTIONS */
   section { padding: 100px 5%; max-width: 1400px; margin: 0 auto; }
@@ -182,16 +166,13 @@
     border-radius: 12px;
     border: 1px solid var(--border);
     flex-shrink: 0;
-    transition: 0.3s;
   }
-  .award-card:hover { border-color: var(--accent); }
 
-  /* FOOTER & BUTTONS */
+  /* BUTTONS */
   .btn-cv { 
     display: inline-block; padding: 18px 40px; background: var(--accent); color: var(--bg); 
-    font-weight: bold; text-decoration: none; border-radius: 4px; font-size: 16px; transition: 0.3s;
+    font-weight: bold; text-decoration: none; border-radius: 4px; transition: 0.3s;
   }
-  .btn-cv:hover { transform: translateY(-3px); box-shadow: 0 10px 20px rgba(0,229,255,0.2); }
 
   /* RESPONSIVE */
   @media (max-width: 1024px) {
@@ -201,46 +182,43 @@
     .project-item { grid-template-columns: 1fr; }
   }
 
+  /* LANG LOGIC */
   [data-lang] { display: none; }
   body.lang-sv [data-lang="sv"] { display: block; }
   body.lang-en [data-lang="en"] { display: block; }
-  span[data-lang] { display: inline !important; }
 </style>
 </head>
 <body class="lang-sv">
 
 <div class="lang-switch">
-  <button class="lang-btn active" onclick="setLang('sv')">SV</button>
-  <button class="lang-btn" onclick="setLang('en')">EN</button>
+  <button class="lang-btn active" id="btn-sv" onclick="setLang('sv')">SV</button>
+  <button class="lang-btn" id="btn-en" onclick="setLang('en')">EN</button>
 </div>
 
 <header>
   <div class="hero-content">
-    <div class="header-tag">
-      <span data-lang="sv">Drone Systems Engineer</span>
-      <span data-lang="en">Drone Systems Engineer</span>
-    </div>
+    <div class="header-tag">Drone Systems Engineer</div>
     <h1>Mostafa<span>Nouri</span></h1>
     
-    <p class="header-sub">
-      <span data-lang="sv">Fokuserad på nästa generations autonoma system och hållbar hårdvaruarkitektur. Prisbelönt innovatör med expertis inom CAD och batteriteknik.</span>
-      <span data-lang="en">Focused on next-generation autonomous systems and sustainable hardware architecture. Award-winning innovator with expertise in CAD and battery tech.</span>
-    </p>
+    <div class="header-sub">
+      <p data-lang="sv">Fokuserad på nästa generations autonoma system och hållbar hårdvaruarkitektur. Prisbelönt innovatör med expertis inom CAD och batteriteknik.</p>
+      <p data-lang="en">Focused on next-generation autonomous systems and sustainable hardware architecture. Award-winning innovator with expertise in CAD and battery tech.</p>
+    </div>
 
     <div class="expertise-grid">
-      <div class="exp-pill">Hardware Development</div>
-      <div class="exp-pill">CAD & Prototyping</div>
-      <div class="exp-pill">Battery Architecture</div>
-      <div class="exp-pill">Autonomous Systems</div>
+      <div class="exp-pill" data-lang="sv">Hårdvaruutveckling</div>
+      <div class="exp-pill" data-lang="en">Hardware Development</div>
+      <div class="exp-pill" data-lang="sv">CAD & Prototypframtagning</div>
+      <div class="exp-pill" data-lang="en">CAD & Prototyping</div>
+      <div class="exp-pill" data-lang="sv">Batteriarkitektur</div>
+      <div class="exp-pill" data-lang="en">Battery Architecture</div>
+      <div class="exp-pill" data-lang="sv">Autonoma System</div>
+      <div class="exp-pill" data-lang="en">Autonomous Systems</div>
     </div>
     
     <div class="header-links">
-      <button class="contact-link" onclick="copyToClipboard('mostafanouri0710@gmail.com', this)">
-        Email <span class="copy-tooltip">Copied!</span>
-      </button>
-      <button class="contact-link" onclick="copyToClipboard('+46762603087', this)">
-        +46 76 260 3087 <span class="copy-tooltip">Copied!</span>
-      </button>
+      <button class="contact-link" onclick="copyEmail()">Email</button>
+      <button class="contact-link">+46 76 260 3087</button>
       <a href="https://linkedin.com/in/mostafa-nouri-a66600328" target="_blank" class="contact-link">LinkedIn</a>
     </div>
   </div>
@@ -253,7 +231,8 @@
 </header>
 
 <section id="projects">
-  <div class="section-label">Selected Projects</div>
+  <div class="section-label" data-lang="sv">Projekt</div>
+  <div class="section-label" data-lang="en">Projects</div>
   <h2 data-lang="sv">Teknisk Portfölj</h2>
   <h2 data-lang="en">Technical Portfolio</h2>
   
@@ -265,21 +244,21 @@
     </div>
     <div class="project-info">
       <h3 class="project-title">Drone Charging Station</h3>
-      <p class="project-desc">
-        <span data-lang="sv">Utveckling av autonoma dockningsstationer för industriella drönare. Fokus på kraftöverföring via pogo-pins och robust chassi-design.</span>
-        <span data-lang="en">Development of autonomous docking stations for industrial drones. Focus on pogo-pin power transfer and robust chassis design.</span>
-      </p>
+      <p data-lang="sv">Utveckling av autonoma dockningsstationer för industriella drönare. Fokus på kraftöverföring via pogo-pins och robust chassi-design.</p>
+      <p data-lang="en">Development of autonomous docking stations for industrial drones. Focus on pogo-pin power transfer and robust chassis design.</p>
     </div>
   </div>
 
   <div class="project-item">
     <div class="project-info">
       <h3 class="project-title">Sustainable Charge UF</h3>
-      <p class="project-desc">
-        <span data-lang="sv">Cirkulär produktutveckling där kasserade batterier återanvänds i högpresterande powerbanks. Projektet belönades med fem tunga utmärkelser.</span>
-        <span data-lang="en">Circular product development reusing discarded batteries for high-performance power banks. Awarded five major honors.</span>
-      </p>
-      <a href="https://ungainnovatorer.se/vinnare/sustainable-charge-powerbank" target="_blank" style="color:var(--accent); text-decoration:none; font-size:14px;">Case Study →</a>
+      <p data-lang="sv">Cirkulär produktutveckling där kasserade batterier återanvänds i högpresterande powerbanks. Belönades med fem tunga utmärkelser.</p>
+      <p data-lang="en">Circular product development reusing discarded batteries for high-performance power banks. Awarded five major honors.</p>
+      <br>
+      <a href="https://ungainnovatorer.se/vinnare/sustainable-charge-powerbank" target="_blank" style="color:var(--accent); text-decoration:none; font-weight:bold;">
+        <span data-lang="sv">Läs mer om vinsten →</span>
+        <span data-lang="en">Read about the win →</span>
+      </a>
     </div>
     <div class="image-grid">
       <div class="img-wrapper main-feature"><img src="power bank animation.gif"></div>
@@ -293,7 +272,7 @@
   <div class="section-label">Merits</div>
   <h2 data-lang="sv">Erkännanden</h2>
   <h2 data-lang="en">Recognitions</h2>
-  <div class="awards-track" id="awardsTrack">
+  <div class="awards-track">
     <div class="award-card">🥈 <b data-lang="sv">2:a plats: Årets Innovatör (Sverige)</b><b data-lang="en">2nd Place: Innovator of the Year (Sweden)</b><br><small>Unga Innovatörer 2025</small></div>
     <div class="award-card">🥈 <b data-lang="sv">2:a plats: Årets Innovatör (Sthlm)</b><b data-lang="en">2nd Place: Innovator of the Year (Sthlm)</b><br><small>UF 2025</small></div>
     <div class="award-card">🥈 <b data-lang="sv">2:a plats: Årets Hantverkare</b><b data-lang="en">2nd Place: Craftsperson of the Year</b><br><small>UF 2025</small></div>
@@ -305,8 +284,6 @@
 <section style="text-align: center;">
   <h2 data-lang="sv">Tillgänglig för samarbeten</h2>
   <h2 data-lang="en">Available for Collaboration</h2>
-  <p style="color:var(--muted); margin-bottom: 30px;" data-lang="sv">Söker du en teknisk problemlösare? Låt oss höras.</p>
-  <p style="color:var(--muted); margin-bottom: 30px;" data-lang="en">Looking for a technical problem solver? Let's talk.</p>
   <a href="Mostafa_Nouri_CV_Eng.pdf" download class="btn-cv">
     <span data-lang="sv">Ladda ner CV (PDF)</span>
     <span data-lang="en">Download CV (PDF)</span>
@@ -320,18 +297,13 @@
 <script>
   function setLang(lang) {
     document.body.className = 'lang-' + lang;
-    document.querySelectorAll('.lang-btn').forEach(btn => {
-      btn.classList.remove('active');
-      if(btn.innerText.toLowerCase() === lang) btn.classList.add('active');
-    });
+    document.getElementById('btn-sv').classList.toggle('active', lang === 'sv');
+    document.getElementById('btn-en').classList.toggle('active', lang === 'en');
   }
 
-  function copyToClipboard(text, element) {
-    navigator.clipboard.writeText(text).then(() => {
-      const tooltip = element.querySelector('.copy-tooltip');
-      tooltip.classList.add('show');
-      setTimeout(() => tooltip.classList.remove('show'), 1500);
-    });
+  function copyEmail() {
+    navigator.clipboard.writeText('mostafanouri0710@gmail.com');
+    alert('Email kopierad!');
   }
 </script>
 
