@@ -21,7 +21,6 @@
   }
 
   * { margin: 0; padding: 0; box-sizing: border-box; }
-  
   body {
     background: var(--bg);
     color: var(--text);
@@ -45,33 +44,18 @@
   }
   .lang-btn.active { background: var(--accent); color: var(--bg); }
 
-  /* HEADER / HERO */
+  /* HERO SECTION */
   header {
     min-height: 100vh; display: grid; grid-template-columns: 1.2fr 0.8fr;
     align-items: center; padding: 0 5%; gap: 60px;
   }
-
-  .header-tag {
-    font-size: 11px; letter-spacing: 4px; text-transform: uppercase;
-    color: var(--accent); margin-bottom: 15px;
-  }
-
-  h1 {
-    font-family: 'Bebas Neue', sans-serif;
-    font-size: clamp(60px, 10vw, 120px);
-    line-height: 0.85; color: var(--white); margin-bottom: 25px;
-  }
+  .header-tag { font-size: 11px; letter-spacing: 4px; text-transform: uppercase; color: var(--accent); margin-bottom: 15px; }
+  h1 { font-family: 'Bebas Neue', sans-serif; font-size: clamp(60px, 10vw, 120px); line-height: 0.85; color: var(--white); margin-bottom: 25px; }
   h1 span { color: var(--accent); display: block; }
-
-  .header-sub {
-    font-size: clamp(16px, 2vw, 18px);
-    color: var(--muted); max-width: 600px; margin-bottom: 40px;
-  }
+  .header-sub { font-size: clamp(16px, 2vw, 18px); color: var(--muted); max-width: 600px; margin-bottom: 40px; }
 
   /* EXPERTISE GRID */
-  .expertise-grid {
-    display: grid; grid-template-columns: 1fr 1fr; gap: 15px; margin-top: 30px;
-  }
+  .expertise-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 15px; margin: 30px 0; }
   .exp-pill {
     background: var(--surface); border: 1px solid var(--border);
     padding: 12px 20px; border-radius: 8px; font-size: 13px;
@@ -79,7 +63,8 @@
   }
   .exp-pill:hover { border-color: var(--accent); background: var(--card); }
 
-  .hero-visual { display: flex; justify-content: center; position: relative; }
+  /* PROFILE IMG */
+  .hero-visual { display: flex; justify-content: center; }
   .profile-container { position: relative; width: 100%; max-width: 380px; }
   .profile-img {
     width: 100%; aspect-ratio: 1/1; border-radius: 24px;
@@ -96,7 +81,6 @@
     font-family: inherit; padding-bottom: 5px;
   }
   .contact-link:hover { color: var(--accent); }
-  
   .copy-indicator {
     position: absolute; bottom: -20px; left: 50%; transform: translateX(-50%);
     font-size: 10px; color: var(--accent); opacity: 0; transition: 0.3s; pointer-events: none;
@@ -104,12 +88,10 @@
   }
   .copy-indicator.show { opacity: 1; bottom: -25px; }
 
-  /* SECTIONS */
+  /* PROJECTS */
   section { padding: 100px 5%; max-width: 1400px; margin: 0 auto; }
   .section-label { font-size: 10px; letter-spacing: 5px; text-transform: uppercase; color: var(--accent); margin-bottom: 20px; }
   h2 { font-family: 'Bebas Neue', sans-serif; font-size: clamp(40px, 6vw, 70px); color: var(--white); margin-bottom: 50px; }
-
-  /* PROJECTS */
   .project-item { display: grid; grid-template-columns: 1fr 1fr; gap: 60px; align-items: center; margin-bottom: 120px; }
   .image-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 15px; }
   .img-wrapper { overflow: hidden; border-radius: 12px; border: 1px solid var(--border); background: var(--surface); }
@@ -118,9 +100,9 @@
   .img-wrapper:hover img { transform: scale(1.05); }
   .project-title { font-family: 'Bebas Neue', sans-serif; font-size: 40px; margin-bottom: 15px; color: var(--accent); }
 
-  /* AWARDS TRACK */
+  /* AWARDS SCROLL TRACK */
   .awards-track {
-    display: flex; gap: 25px; overflow-x: auto; padding: 20px 0;
+    display: flex; gap: 25px; overflow-x: auto; padding: 20px 5px;
     scrollbar-width: none; -ms-overflow-style: none;
   }
   .awards-track::-webkit-scrollbar { display: none; }
@@ -131,6 +113,8 @@
   }
   .award-card:hover { border-color: var(--accent); transform: translateY(-5px); }
   .award-card h4 { color: var(--accent); font-family: 'Bebas Neue', sans-serif; font-size: 24px; margin-bottom: 10px; }
+  .award-card p { font-size: 14px; line-height: 1.4; }
+  .award-card small { color: var(--muted); display: block; margin-top: 10px; font-size: 11px; text-transform: uppercase; }
 
   /* BUTTONS */
   .btn-cv { 
@@ -146,6 +130,7 @@
     .hero-visual { order: -1; }
     .header-links, .expertise-grid { justify-content: center; }
     .project-item { grid-template-columns: 1fr; }
+    .award-card { min-width: 260px; }
   }
 
   [data-lang] { display: none; }
@@ -164,23 +149,20 @@
   <div class="hero-content">
     <div class="header-tag">Drone Systems Engineer</div>
     <h1>Mostafa<span>Nouri</span></h1>
-    
     <div class="header-sub">
-      <p data-lang="sv">Jag brinner för att lösa komplexa problem genom smart hårdvarudesign. Med erfarenhet av allt från prisbelönt cirkulär teknik till autonoma laddningsstationer för drönare, bygger jag system som gör skillnad på riktigt.</p>
-      <p data-lang="en">I am passionate about solving complex problems through smart hardware design. With experience ranging from award-winning circular tech to autonomous drone charging stations, I build systems that make a real impact.</p>
+      <p data-lang="sv">Blivande ingenjör med fokus på autonoma system och cirkulär teknik. Jag bygger framtidens maskiner med ett starkt fokus på hållbarhet och innovativ hårdvaruarkitektur.</p>
+      <p data-lang="en">Aspiring engineer focused on autonomous systems and circular technology. I build the machines of tomorrow with a strong focus on sustainability and innovative hardware architecture.</p>
     </div>
-
     <div class="expertise-grid">
-      <div class="exp-pill" data-lang="sv">Hårdvarudesign</div>
-      <div class="exp-pill" data-lang="en">Hardware Design</div>
-      <div class="exp-pill" data-lang="sv">CAD & Prototyping</div>
-      <div class="exp-pill" data-lang="en">CAD & Prototyping</div>
+      <div class="exp-pill" data-lang="sv">Hårdvaruutveckling</div>
+      <div class="exp-pill" data-lang="en">Hardware Development</div>
+      <div class="exp-pill" data-lang="sv">CAD & Design</div>
+      <div class="exp-pill" data-lang="en">CAD & Design</div>
       <div class="exp-pill" data-lang="sv">Batteriteknik</div>
       <div class="exp-pill" data-lang="en">Battery Tech</div>
-      <div class="exp-pill" data-lang="sv">Autonoma System</div>
-      <div class="exp-pill" data-lang="en">Autonomous Systems</div>
+      <div class="exp-pill" data-lang="sv">Ledarskap</div>
+      <div class="exp-pill" data-lang="en">Leadership</div>
     </div>
-    
     <div class="header-links">
       <div class="contact-wrapper">
         <button class="contact-link" onclick="copyText('mostafanouri0710@gmail.com', this)">Email</button>
@@ -193,7 +175,6 @@
       <a href="https://linkedin.com/in/mostafa-nouri-a66600328" target="_blank" class="contact-link" style="text-decoration:none;">LinkedIn</a>
     </div>
   </div>
-
   <div class="hero-visual">
     <div class="profile-container">
       <img src="mostafapfp.jpg" alt="Mostafa Nouri" class="profile-img">
@@ -202,88 +183,93 @@
 </header>
 
 <section id="projects">
-  <div class="section-label" data-lang="sv">Portfolio</div>
-  <div class="section-label" data-lang="en">Portfolio</div>
+  <div class="section-label" data-lang="sv">Arbete</div>
+  <div class="section-label" data-lang="en">Work</div>
   <h2 data-lang="sv">Utvalda Projekt</h2>
   <h2 data-lang="en">Selected Projects</h2>
   
   <div class="project-item">
     <div class="image-grid">
-      <div class="img-wrapper main-feature"><img src="laddningsstaion med plattor .gif"></div>
-      <div class="img-wrapper sub-feature"><img src="PCB model 2.2mm v4.png"></div>
-      <div class="img-wrapper sub-feature"><img src="PCB model 2.2mm v4 1.png"></div>
+      <div class="img-wrapper main-feature"><img src="laddningsstaion med plattor .gif" alt="Drone Station"></div>
+      <div class="img-wrapper sub-feature"><img src="PCB model 2.2mm v4.png" alt="PCB Design"></div>
+      <div class="img-wrapper sub-feature"><img src="PCB model 2.2mm v4 1.png" alt="PCB Detail"></div>
     </div>
     <div class="project-info">
       <h3 class="project-title">Drone Charging Station</h3>
-      <p data-lang="sv">För att drönare ska kunna arbeta dygnet runt krävs en station som kan hantera landning och laddning helt utan mänsklig hjälp. Jag har designat den mekaniska strukturen och det specialbyggda pogo-pin-systemet från grunden för att säkerställa att stationen är både robust och tillförlitlig nog för industriellt bruk.</p>
-      <p data-lang="en">For drones to operate 24/7, they need a station that handles landing and charging without human intervention. I designed the mechanical structure and custom pogo-pin system from scratch to ensure the station is robust and reliable for industrial applications.</p>
+      <p data-lang="sv">Jag designar och bygger autonoma laddningsstationer för AI-drivna drönare inom industri och försvar. Arbetet innebär allt från mekanisk konstruktion i CAD till att utveckla den fullständiga tekniska arkitekturen som möjliggör dockning och laddning utan mänsklig handpåläggning.</p>
+      <p data-lang="en">I design and build autonomous charging stations for AI-powered drones in industry and defense. This work involves everything from mechanical design in CAD to developing the full technical architecture that enables docking and charging without human intervention.</p>
     </div>
   </div>
 
   <div class="project-item">
     <div class="project-info">
       <h3 class="project-title">Sustainable Charge</h3>
-      <p data-lang="sv">Genom att extrahera och testa fungerande battericeller från kasserade e-cigaretter skapade jag en cirkulär lösning för bärbar energi. Projektet fokuserade på hållbarhet genom återbruk av komponenter, monterade i en egendesignad konstruktion. Arbetet belönades med en prestigefylld andraplats i den nationella innovationstävlingen Unga Innovatörer.</p>
-      <p data-lang="en">By extracting and testing functional battery cells from discarded e-cigarettes, I created a circular solution for portable energy. The project focused on sustainability through component reuse, assembled in a custom-designed chassis. The work earned a second-place finish in the national Unga Innovatörer competition.</p>
+      <p data-lang="sv">Som VD för Sustainable Charge UF tog jag fram en cirkulär lösning för bärbar energi. Genom att återvinna battericeller från kasserade e-cigaretter och integrera dem i en egendesignad konstruktion, skapade jag högpresterande powerbanks. Projektet vann en nationell andraplats för sin innovation och hantverksskicklighet.</p>
+      <p data-lang="en">As CEO of Sustainable Charge UF, I developed a circular solution for portable energy. By recycling battery cells from discarded e-cigarettes and integrating them into a custom-designed chassis, I created high-performance power banks. The project earned a national second-place award for its innovation and craftsmanship.</p>
       <br>
       <a href="https://ungainnovatorer.se/vinnare/sustainable-charge-powerbank" target="_blank" style="color:var(--accent); text-decoration:none; font-weight:bold;">
-        <span data-lang="sv">Läs om vinsten hos Unga Innovatörer →</span>
-        <span data-lang="en">Read about the national award →</span>
+        <span data-lang="sv">Se vinnarintervjun →</span>
+        <span data-lang="en">Watch winner interview →</span>
       </a>
     </div>
     <div class="image-grid">
-      <div class="img-wrapper main-feature"><img src="power bank animation.gif"></div>
-      <div class="img-wrapper sub-feature"><img src="image_c21437.png"></div>
-      <div class="img-wrapper sub-feature"><img src="image_c21433.png"></div>
+      <div class="img-wrapper main-feature"><img src="power bank animation.gif" alt="Powerbank Animation"></div>
+      <div class="img-wrapper sub-feature"><img src="image_c21437.png" alt="Product View 1"></div>
+      <div class="img-wrapper sub-feature"><img src="image_c21433.png" alt="Product View 2"></div>
     </div>
   </div>
 </section>
 
 <section style="background: var(--surface);">
-  <div class="section-label">Recognition</div>
+  <div class="section-label">Merits</div>
   <h2 data-lang="sv">Utmärkelser</h2>
-  <h2 data-lang="en">Awards</h2>
+  <h2 data-lang="en">Awards & Recognition</h2>
+  
   <div class="awards-track">
     <div class="award-card">
       <h4>🥈 <span data-lang="sv">2:a Plats</span><span data-lang="en">2nd Place</span></h4>
-      <p data-lang="sv">Årets Innovatör (Sverige) - Unga Innovatörer 2025</p>
-      <p data-lang="en">Innovator of the Year (Sweden) - Unga Innovatörer 2025</p>
+      <p data-lang="sv">Årets Innovatör (Sverige)</p>
+      <p data-lang="en">Innovator of the Year (Sweden)</p>
+      <small>Unga Innovatörer • 2025</small>
     </div>
     <div class="award-card">
       <h4>🥈 <span data-lang="sv">2:a Plats</span><span data-lang="en">2nd Place</span></h4>
-      <p data-lang="sv">Årets Innovatör (Stockholm) - UF 2025</p>
-      <p data-lang="en">Innovator of the Year (Stockholm) - UF 2025</p>
+      <p data-lang="sv">Årets Innovatör (Stockholm)</p>
+      <p data-lang="en">Innovator of the Year (Stockholm)</p>
+      <small>Ung Företagsamhet • 2025</small>
     </div>
     <div class="award-card">
       <h4>🥈 <span data-lang="sv">2:a Plats</span><span data-lang="en">2nd Place</span></h4>
-      <p data-lang="sv">Årets Hantverkare - UF 2025</p>
-      <p data-lang="en">Craftsperson of the Year - UF 2025</p>
+      <p data-lang="sv">Årets Hantverkare (Stockholm)</p>
+      <p data-lang="en">Craftsperson of the Year (Stockholm)</p>
+      <small>Ung Företagsamhet • 2025</small>
     </div>
     <div class="award-card">
       <h4>🥉 <span data-lang="sv">3:e Plats</span><span data-lang="en">3rd Place</span></h4>
-      <p data-lang="sv">Årets Nytänkare - UF 2025</p>
-      <p data-lang="en">Thinker of the Year - UF 2025</p>
+      <p data-lang="sv">Årets Nytänkare (Stockholm)</p>
+      <p data-lang="en">Thinker of the Year (Stockholm)</p>
+      <small>Ung Företagsamhet • 2025</small>
     </div>
     <div class="award-card">
       <h4>🥉 <span data-lang="sv">3:e Plats</span><span data-lang="en">3rd Place</span></h4>
-      <p data-lang="sv">Social Hållbarhet - UF 2025</p>
-      <p data-lang="en">Social Sustainability - UF 2025</p>
+      <p data-lang="sv">Årets Socialt Hållbara (Stockholm)</p>
+      <p data-lang="en">Socially Sustainable of the Year</p>
+      <small>Ung Företagsamhet • 2025</small>
     </div>
   </div>
 </section>
 
 <footer style="padding: 100px 5%; text-align: center; border-top: 1px solid var(--border);">
-  <h2 data-lang="sv">Vill du samarbeta?</h2>
-  <h2 data-lang="en">Let's connect</h2>
-  <p style="color:var(--muted); margin-bottom: 20px;" data-lang="sv">Jag söker alltid efter nya utmaningar och möjligheter inom teknik.</p>
-  <p style="color:var(--muted); margin-bottom: 20px;" data-lang="en">I'm always looking for new challenges and engineering opportunities.</p>
+  <h2 data-lang="sv">Kontakt</h2>
+  <h2 data-lang="en">Connect</h2>
+  <p style="color:var(--muted); margin-bottom: 30px;" data-lang="sv">Jag är alltid öppen för nya spännande samarbeten inom teknik och innovation.</p>
+  <p style="color:var(--muted); margin-bottom: 30px;" data-lang="en">I am always open to new exciting collaborations in technology and innovation.</p>
   
   <a href="Mostafa_Nouri_CV_English (1).pdf" download class="btn-cv">
     <span data-lang="sv">Ladda ner CV (PDF)</span>
     <span data-lang="en">Download CV (PDF)</span>
   </a>
-  
-  <p style="margin-top: 50px; font-size: 12px; color: var(--muted);">Mostafa Nouri © 2026</p>
+  <p style="margin-top: 50px; font-size: 11px; color: var(--muted); letter-spacing: 2px; text-transform: uppercase;">Mostafa Nouri © 2026</p>
 </footer>
 
 <script>
