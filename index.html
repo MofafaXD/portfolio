@@ -4,6 +4,9 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Mostafa Nouri | Drone Systems Engineer</title>
+
+<link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🛸</text></svg>">
+
 <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=DM+Sans:ital,wght@0,300;0,400;0,500;1,300&display=swap" rel="stylesheet">
 <style>
   :root {
@@ -62,11 +65,28 @@
 
   /* HEADER */
   header {
-    min-height: 80vh;
+    min-height: 90vh;
     display: flex;
     flex-direction: column;
     justify-content: center;
     padding: 40px 5%;
+    position: relative;
+  }
+
+  .profile-area {
+    display: flex;
+    align-items: center;
+    gap: 40px;
+    margin-bottom: 30px;
+  }
+
+  .profile-img {
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    border: 3px solid var(--accent);
+    object-fit: cover;
+    box-shadow: 0 0 20px rgba(0, 229, 255, 0.2);
   }
 
   .header-tag {
@@ -79,7 +99,7 @@
 
   h1 {
     font-family: 'Bebas Neue', sans-serif;
-    font-size: clamp(60px, 10vw, 120px);
+    font-size: clamp(50px, 8vw, 100px);
     line-height: 0.9;
     color: var(--white);
     margin-bottom: 20px;
@@ -177,10 +197,7 @@
     border-radius: 4px;
     transition: all 0.3s;
   }
-  .link-btn:hover {
-    background: var(--accent);
-    color: var(--bg);
-  }
+  .link-btn:hover { background: var(--accent); color: var(--bg); }
 
   /* AWARDS */
   .awards-row { display: flex; gap: 20px; overflow-x: auto; padding-bottom: 20px; scrollbar-width: none; }
@@ -198,6 +215,7 @@
   @media (max-width: 992px) {
     .project-item { grid-template-columns: 1fr; gap: 30px; }
     .project-item:nth-child(even) .image-grid { order: -1; }
+    .profile-area { flex-direction: column; align-items: flex-start; }
   }
 
   [data-lang] { display: none; }
@@ -215,11 +233,17 @@
 </div>
 
 <header>
-  <div class="header-tag">
-    <span data-lang="sv">Drone Systems Engineer · Portfolio</span>
-    <span data-lang="en">Drone Systems Engineer · Portfolio</span>
+  <div class="profile-area">
+    <img src="mostafapfp.jpg" alt="Mostafa Nouri" class="profile-img">
+    <div>
+      <div class="header-tag">
+        <span data-lang="sv">Drone Systems Engineer · Portfolio</span>
+        <span data-lang="en">Drone Systems Engineer · Portfolio</span>
+      </div>
+      <h1>Mostafa<span>Nouri</span></h1>
+    </div>
   </div>
-  <h1>Mostafa<span>Nouri</span></h1>
+  
   <p class="header-sub">
     <span data-lang="sv">Blivande ingenjör specialiserad på autonoma hårdvarusystem, batteriteknik och prisbelönt hållbar innovation.</span>
     <span data-lang="en">Aspiring engineer specializing in autonomous hardware systems, battery technology, and award-winning sustainable innovation.</span>
@@ -345,7 +369,7 @@
 </section>
 
 <footer style="padding: 40px 5%; border-top: 1px solid var(--border); text-align: center; color: var(--muted); font-size: 12px;">
-  Mostafa Nouri · Drone Systems Engineer
+  Mostafa Nouri · Drone Systems Engineer 
 </footer>
 
 <script>
