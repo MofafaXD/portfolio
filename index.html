@@ -136,9 +136,7 @@
     pointer-events: none;
   }
 
-  .copy-tooltip.show {
-    opacity: 1;
-  }
+  .copy-tooltip.show { opacity: 1; }
 
   /* SECTIONS */
   section { padding: 80px 5%; max-width: 1400px; margin: 0 auto; }
@@ -150,7 +148,7 @@
     margin-bottom: 40px;
   }
 
-  /* PROJECT ITEMS */
+  /* PROJECTS */
   .project-container { display: flex; flex-direction: column; gap: 100px; }
   .project-item { display: grid; grid-template-columns: 1fr 1fr; gap: 50px; align-items: center; }
   
@@ -212,18 +210,12 @@
   
   <div class="header-links">
     <button class="contact-link" onclick="copyToClipboard('mostafanouri0710@gmail.com', this)">
-      Email
-      <span class="copy-tooltip">Copied!</span>
+      Email <span class="copy-tooltip">Copied!</span>
     </button>
-    
     <button class="contact-link" onclick="copyToClipboard('+46762603087', this)">
-      +46 76 260 3087
-      <span class="copy-tooltip">Copied!</span>
+      +46 76 260 3087 <span class="copy-tooltip">Copied!</span>
     </button>
-    
-    <a href="https://linkedin.com/in/mostafa-nouri-a66600328" target="_blank" class="contact-link">
-      LinkedIn
-    </a>
+    <a href="https://linkedin.com/in/mostafa-nouri-a66600328" target="_blank" class="contact-link">LinkedIn</a>
   </div>
 </header>
 
@@ -249,9 +241,7 @@
           <span data-lang="en">Designing and building autonomous charging stations for AI-powered drones. Developing hardware from the ground up with a focus on pogo-pin adapters for seamless power transfer.</span>
         </p>
         <div class="tag-cloud">
-          <span>Hardware Dev</span>
-          <span>CAD</span>
-          <span>PCB Design</span>
+          <span>Hardware Dev</span><span>CAD</span><span>PCB Design</span>
         </div>
       </div>
     </div>
@@ -264,9 +254,7 @@
           <span data-lang="en">Award-winning handcrafted power banks made from recycled e-cigarette batteries. Responsible for strategic management and product development within circular economy.</span>
         </p>
         <div class="tag-cloud">
-          <span>Battery Tech</span>
-          <span>Circular Economy</span>
-          <span>3D-print</span>
+          <span>Battery Tech</span><span>Circular Economy</span><span>3D-print</span>
         </div>
       </div>
       <div class="image-grid">
@@ -329,7 +317,7 @@
 <section style="text-align: center;">
   <h2 data-lang="sv">Vill du veta mer?</h2>
   <h2 data-lang="en">Want to know more?</h2>
-  <a href="Mostafa_Nouri_CV_English (1).pdf" download class="btn-cv">
+  <a href="Mostafa_Nouri_CV_Eng.pdf" download class="btn-cv">
     <span data-lang="sv">Ladda ner CV (PDF)</span>
     <span data-lang="en">Download CV (PDF)</span>
   </a>
@@ -352,9 +340,7 @@
     navigator.clipboard.writeText(text).then(() => {
       const tooltip = element.querySelector('.copy-tooltip');
       tooltip.classList.add('show');
-      setTimeout(() => {
-        tooltip.classList.remove('show');
-      }, 1500);
+      setTimeout(() => tooltip.classList.remove('show'), 1500);
     });
   }
 </script>
