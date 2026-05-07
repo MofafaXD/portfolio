@@ -162,8 +162,25 @@
   .project-title { font-family: 'Bebas Neue', sans-serif; font-size: 40px; color: var(--white); margin-bottom: 20px; }
   .project-desc { color: var(--muted); margin-bottom: 30px; font-size: 15px; }
   
-  .tag-cloud { display: flex; flex-wrap: wrap; gap: 10px; }
+  .tag-cloud { display: flex; flex-wrap: wrap; gap: 10px; margin-bottom: 25px; }
   .tag-cloud span { padding: 5px 12px; background: var(--card); border: 1px solid var(--border); font-size: 12px; border-radius: 4px; }
+
+  .link-btn {
+    display: inline-flex;
+    align-items: center;
+    padding: 10px 20px;
+    background: transparent;
+    border: 1px solid var(--accent);
+    color: var(--accent);
+    text-decoration: none;
+    font-size: 13px;
+    border-radius: 4px;
+    transition: all 0.3s;
+  }
+  .link-btn:hover {
+    background: var(--accent);
+    color: var(--bg);
+  }
 
   /* AWARDS */
   .awards-row { display: flex; gap: 20px; overflow-x: auto; padding-bottom: 20px; scrollbar-width: none; }
@@ -256,6 +273,10 @@
         <div class="tag-cloud">
           <span>Battery Tech</span><span>Circular Economy</span><span>3D-print</span>
         </div>
+        <a href="https://ungainnovatorer.se/vinnare/sustainable-charge-powerbank" target="_blank" class="link-btn">
+          <span data-lang="sv">Läs vinnarintervjun</span>
+          <span data-lang="en">Read Winner Interview</span>
+        </a>
       </div>
       <div class="image-grid">
         <div class="img-wrapper main-feature"><img src="power bank animation.gif"></div>
