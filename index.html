@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Mostafa Nouri – Portfolio</title>
+<title>Mostafa Nouri | Drone Systems Engineer</title>
 <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=DM+Sans:ital,wght@0,300;0,400;0,500;1,300&display=swap" rel="stylesheet">
 <style>
   :root {
@@ -91,6 +91,53 @@
     font-size: clamp(16px, 2vw, 18px);
     color: var(--muted);
     max-width: 600px;
+    margin-bottom: 40px;
+  }
+
+  /* INTERACTIVE CONTACT LINKS */
+  .header-links {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 30px;
+    align-items: center;
+  }
+
+  .contact-link {
+    color: var(--muted);
+    text-decoration: none;
+    font-size: 14px;
+    letter-spacing: 1px;
+    cursor: pointer;
+    transition: color 0.3s ease, transform 0.2s ease;
+    position: relative;
+    background: none;
+    border: none;
+    font-family: inherit;
+  }
+
+  .contact-link:hover {
+    color: var(--accent);
+    transform: translateY(-2px);
+  }
+
+  .copy-tooltip {
+    position: absolute;
+    bottom: -25px;
+    left: 50%;
+    transform: translateX(-50%);
+    background: var(--accent);
+    color: var(--bg);
+    font-size: 10px;
+    font-weight: bold;
+    padding: 2px 8px;
+    border-radius: 4px;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+    pointer-events: none;
+  }
+
+  .copy-tooltip.show {
+    opacity: 1;
   }
 
   /* SECTIONS */
@@ -138,7 +185,6 @@
     .project-item:nth-child(even) .image-grid { order: -1; }
   }
 
-  /* LANGUAGE HIDING */
   [data-lang] { display: none; }
   body.lang-sv [data-lang="sv"] { display: block; }
   body.lang-en [data-lang="en"] { display: block; }
@@ -155,17 +201,29 @@
 
 <header>
   <div class="header-tag">
-    <span data-lang="sv">Manufacturing Engineer · Portfolio</span>
-    <span data-lang="en">Manufacturing Engineer · Portfolio</span>
+    <span data-lang="sv">Drone Systems Engineer · Portfolio</span>
+    <span data-lang="en">Drone Systems Engineer · Portfolio</span>
   </div>
   <h1>Mostafa<span>Nouri</span></h1>
   <p class="header-sub">
-    <span data-lang="sv">Blivande ingenjör med fokus på autonoma hårdvarusystem, batteriteknik och prisbelönt hållbar innovation.</span>
+    <span data-lang="sv">Blivande ingenjör specialiserad på autonoma hårdvarusystem, batteriteknik och prisbelönt hållbar innovation.</span>
     <span data-lang="en">Aspiring engineer specializing in autonomous hardware systems, battery technology, and award-winning sustainable innovation.</span>
   </p>
-  <div style="margin-top: 30px;">
-    <a href="mailto:mostafanouri0710@gmail.com" style="color: var(--muted); text-decoration: none; margin-right: 20px;">Email</a>
-    <a href="https://linkedin.com/in/mostafa-nouri-a66600328" style="color: var(--muted); text-decoration: none;">LinkedIn</a>
+  
+  <div class="header-links">
+    <button class="contact-link" onclick="copyToClipboard('mostafanouri0710@gmail.com', this)">
+      Email
+      <span class="copy-tooltip">Copied!</span>
+    </button>
+    
+    <button class="contact-link" onclick="copyToClipboard('+46762603087', this)">
+      +46 76 260 3087
+      <span class="copy-tooltip">Copied!</span>
+    </button>
+    
+    <a href="https://linkedin.com/in/mostafa-nouri-a66600328" target="_blank" class="contact-link">
+      LinkedIn
+    </a>
   </div>
 </header>
 
@@ -191,7 +249,7 @@
           <span data-lang="en">Designing and building autonomous charging stations for AI-powered drones. Developing hardware from the ground up with a focus on pogo-pin adapters for seamless power transfer.</span>
         </p>
         <div class="tag-cloud">
-          <span data-lang="sv">Hårdvaruutveckling</span><span data-lang="en">Hardware Dev</span>
+          <span>Hardware Dev</span>
           <span>CAD</span>
           <span>PCB Design</span>
         </div>
@@ -206,8 +264,8 @@
           <span data-lang="en">Award-winning handcrafted power banks made from recycled e-cigarette batteries. Responsible for strategic management and product development within circular economy.</span>
         </p>
         <div class="tag-cloud">
-          <span data-lang="sv">Batteriteknik</span><span data-lang="en">Battery Tech</span>
-          <span data-lang="sv">Cirkulär Ekonomi</span><span data-lang="en">Circular Economy</span>
+          <span>Battery Tech</span>
+          <span>Circular Economy</span>
           <span>3D-print</span>
         </div>
       </div>
@@ -226,7 +284,7 @@
   <h2 data-lang="en">Awards & Achievements</h2>
   <div class="awards-row">
     <div class="award-card">
-      <div style="font-size: 24px; margin-bottom: 10px;"></div>
+      <div style="font-size: 24px; margin-bottom: 10px;">🥈</div>
       <div style="font-weight: 500;">
         <span data-lang="sv">2:a plats: Årets Innovatör (Sverige)</span>
         <span data-lang="en">2nd Place: Innovator of the Year (Sweden)</span>
@@ -278,20 +336,25 @@
 </section>
 
 <footer style="padding: 40px 5%; border-top: 1px solid var(--border); text-align: center; color: var(--muted); font-size: 12px;">
-  Mostafa Nouri · +46 76 260 3087 · mostafanouri0710@gmail.com
+  Mostafa Nouri · Drone Systems Engineer
 </footer>
 
 <script>
   function setLang(lang) {
-    // Switch class on body
     document.body.className = 'lang-' + lang;
-    
-    // Update active state on buttons
     document.querySelectorAll('.lang-btn').forEach(btn => {
       btn.classList.remove('active');
-      if(btn.innerText.toLowerCase() === lang) {
-        btn.classList.add('active');
-      }
+      if(btn.innerText.toLowerCase() === lang) btn.classList.add('active');
+    });
+  }
+
+  function copyToClipboard(text, element) {
+    navigator.clipboard.writeText(text).then(() => {
+      const tooltip = element.querySelector('.copy-tooltip');
+      tooltip.classList.add('show');
+      setTimeout(() => {
+        tooltip.classList.remove('show');
+      }, 1500);
     });
   }
 </script>
