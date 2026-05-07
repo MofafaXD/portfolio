@@ -32,161 +32,77 @@
 
   /* LANGUAGE TOGGLE */
   .lang-switch {
-    position: fixed;
-    top: 20px;
-    right: 20px;
-    z-index: 1000;
-    background: var(--card);
-    border: 1px solid var(--border);
-    padding: 5px;
-    border-radius: 30px;
-    display: flex;
-    gap: 5px;
+    position: fixed; top: 20px; right: 20px; z-index: 1000;
+    background: var(--card); border: 1px solid var(--border);
+    padding: 5px; border-radius: 30px; display: flex; gap: 5px;
   }
   .lang-btn {
-    background: transparent;
-    border: none;
-    color: var(--muted);
-    padding: 8px 15px;
-    cursor: pointer;
-    font-size: 12px;
-    font-weight: bold;
-    border-radius: 20px;
-    transition: 0.3s;
+    background: transparent; border: none; color: var(--muted);
+    padding: 8px 15px; cursor: pointer; font-size: 12px;
+    font-weight: bold; border-radius: 20px; transition: 0.3s;
   }
   .lang-btn.active { background: var(--accent); color: var(--bg); }
 
-  /* HEADER / HERO */
+  /* HERO SECTION */
   header {
-    min-height: 100vh;
-    display: grid;
-    grid-template-columns: 1.2fr 0.8fr;
-    align-items: center;
-    padding: 0 5%;
-    gap: 60px;
+    min-height: 100vh; display: grid; grid-template-columns: 1.2fr 0.8fr;
+    align-items: center; padding: 0 5%; gap: 60px;
   }
-
-  .header-tag {
-    font-size: 11px;
-    letter-spacing: 4px;
-    text-transform: uppercase;
-    color: var(--accent);
-    margin-bottom: 15px;
-  }
-  h1 {
-    font-family: 'Bebas Neue', sans-serif;
-    font-size: clamp(60px, 10vw, 120px);
-    line-height: 0.85;
-    color: var(--white);
-    margin-bottom: 25px;
-  }
+  h1 { font-family: 'Bebas Neue', sans-serif; font-size: clamp(60px, 10vw, 120px); line-height: 0.85; color: var(--white); }
   h1 span { color: var(--accent); display: block; }
 
-  .header-sub {
-    font-size: clamp(16px, 2vw, 18px);
-    color: var(--muted);
-    max-width: 600px;
-    margin-bottom: 40px;
-  }
-
-  /* EXPERTISE GRID */
-  .expertise-grid {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 15px;
-    margin-top: 30px;
-  }
+  .expertise-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 15px; margin: 30px 0; }
   .exp-pill {
-    background: var(--surface);
-    border: 1px solid var(--border);
-    padding: 12px 20px;
-    border-radius: 8px;
-    font-size: 13px;
-    color: var(--text);
-    text-align: center;
+    background: var(--surface); border: 1px solid var(--border);
+    padding: 12px; border-radius: 8px; font-size: 13px; text-align: center;
   }
 
-  .hero-visual {
-    display: flex;
-    justify-content: center;
-  }
-  .profile-container {
-    position: relative;
-    width: 100%;
-    max-width: 380px;
-  }
   .profile-img {
-    width: 100%;
-    aspect-ratio: 1/1;
-    border-radius: 24px;
-    object-fit: cover;
-    border: 1px solid var(--border);
-    box-shadow: 0 20px 40px rgba(0,0,0,0.5);
+    width: 100%; max-width: 380px; aspect-ratio: 1/1;
+    border-radius: 24px; object-fit: cover; border: 1px solid var(--border);
   }
 
-  /* CONTACT LINKS */
-  .header-links { display: flex; flex-wrap: wrap; gap: 25px; margin-top: 40px; }
+  /* CONTACT INTERACTION */
+  .header-links { display: flex; gap: 30px; margin-top: 40px; }
+  .contact-wrapper { position: relative; display: inline-block; }
   .contact-link {
-    color: var(--muted);
-    text-decoration: none;
-    font-size: 14px;
-    cursor: pointer;
-    transition: 0.3s;
-    position: relative;
-    background: none; border: none; font-family: inherit;
+    background: none; border: none; color: var(--muted);
+    font-family: inherit; font-size: 14px; cursor: pointer; transition: 0.3s;
   }
   .contact-link:hover { color: var(--accent); }
-
-  /* SECTIONS */
-  section { padding: 100px 5%; max-width: 1400px; margin: 0 auto; }
-  .section-label { font-size: 10px; letter-spacing: 5px; text-transform: uppercase; color: var(--accent); margin-bottom: 20px; }
-  h2 { font-family: 'Bebas Neue', sans-serif; font-size: clamp(40px, 6vw, 70px); color: var(--white); margin-bottom: 50px; }
+  .copy-indicator {
+    position: absolute; bottom: -20px; left: 50%; transform: translateX(-50%);
+    font-size: 10px; color: var(--accent); opacity: 0; transition: 0.3s; pointer-events: none;
+  }
+  .copy-indicator.show { opacity: 1; bottom: -25px; }
 
   /* PROJECTS */
-  .project-item { display: grid; grid-template-columns: 1fr 1fr; gap: 60px; align-items: center; margin-bottom: 120px; }
-  .image-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 15px; }
-  .img-wrapper { overflow: hidden; border-radius: 12px; border: 1px solid var(--border); background: var(--surface); }
-  .image-grid img { width: 100%; height: 100%; object-fit: cover; display: block; transition: 0.5s; }
-  .image-grid .main-feature { grid-column: span 2; aspect-ratio: 16/9; }
-  .img-wrapper:hover img { transform: scale(1.05); }
-  .project-title { font-family: 'Bebas Neue', sans-serif; font-size: 40px; margin-bottom: 15px; color: var(--accent); }
+  section { padding: 80px 5%; max-width: 1400px; margin: 0 auto; }
+  .project-item { display: grid; grid-template-columns: 1fr 1fr; gap: 60px; align-items: center; margin-bottom: 100px; }
+  .image-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 15px; }
+  .main-feature { grid-column: span 2; border-radius: 12px; overflow: hidden; border: 1px solid var(--border); }
+  .sub-feature { border-radius: 12px; overflow: hidden; border: 1px solid var(--border); }
+  img { width: 100%; display: block; }
 
-  /* SCROLLABLE AWARDS */
+  /* AWARDS SCROLL */
+  .awards-container { position: relative; margin-top: 40px; }
   .awards-track {
-    display: flex;
-    gap: 25px;
-    overflow-x: auto;
-    padding: 20px 0;
-    scrollbar-width: none;
+    display: flex; gap: 20px; overflow-x: auto; padding: 20px 0;
+    scrollbar-width: none; -ms-overflow-style: none;
   }
   .awards-track::-webkit-scrollbar { display: none; }
   .award-card {
-    min-width: 300px;
-    background: var(--card);
-    padding: 30px;
-    border-radius: 12px;
-    border: 1px solid var(--border);
-    flex-shrink: 0;
-    transition: 0.3s;
+    min-width: 280px; background: var(--card); padding: 25px;
+    border-radius: 15px; border: 1px solid var(--border); flex-shrink: 0;
   }
-  .award-card:hover { border-color: var(--accent); transform: translateY(-5px); }
-
-  /* BUTTONS */
-  .btn-cv { 
-    display: inline-block; padding: 18px 40px; background: var(--accent); color: var(--bg); 
-    font-weight: bold; text-decoration: none; border-radius: 4px; transition: 0.3s;
-  }
-  .btn-cv:hover { filter: brightness(1.1); box-shadow: 0 10px 20px rgba(0,229,255,0.2); }
+  .award-card h4 { color: var(--accent); margin-bottom: 5px; }
 
   /* RESPONSIVE */
   @media (max-width: 1024px) {
-    header { grid-template-columns: 1fr; padding-top: 100px; text-align: center; }
-    .hero-visual { order: -1; }
+    header, .project-item { grid-template-columns: 1fr; text-align: center; }
     .header-links, .expertise-grid { justify-content: center; }
-    .project-item { grid-template-columns: 1fr; }
   }
 
-  /* LANG LOGIC */
   [data-lang] { display: none; }
   body.lang-sv [data-lang="sv"] { display: block; }
   body.lang-en [data-lang="en"] { display: block; }
@@ -205,8 +121,8 @@
     <h1>Mostafa<span>Nouri</span></h1>
     
     <div class="header-sub">
-      <p data-lang="sv">Jag brinner för att bygga framtidens autonoma maskiner. Med en bakgrund inom både prisbelönt hållbarhetsinnovation och avancerad drönarhårdvara, fokuserar jag på att lösa komplexa tekniska utmaningar med smart design.</p>
-      <p data-lang="en">I am passionate about building the autonomous machines of tomorrow. With a background in award-winning sustainable innovation and advanced drone hardware, I focus on solving complex technical challenges through smart design.</p>
+      <p data-lang="sv">Jag utvecklar nästa generations autonoma system med fokus på hårdvaruarkitektur och smarta energilösningar. Från prisbelönt cirkulär teknik till avancerad drönarinfrastruktur.</p>
+      <p data-lang="en">I develop next-generation autonomous systems focusing on hardware architecture and smart energy solutions. From award-winning circular tech to advanced drone infrastructure.</p>
     </div>
 
     <div class="expertise-grid">
@@ -215,90 +131,83 @@
       <div class="exp-pill" data-lang="sv">CAD & Prototyping</div>
       <div class="exp-pill" data-lang="en">CAD & Prototyping</div>
       <div class="exp-pill" data-lang="sv">Batteriteknik</div>
-      <div class="exp-pill" data-lang="en">Battery Technology</div>
+      <div class="exp-pill" data-lang="en">Battery Tech</div>
       <div class="exp-pill" data-lang="sv">Autonoma System</div>
       <div class="exp-pill" data-lang="en">Autonomous Systems</div>
     </div>
     
     <div class="header-links">
-      <button class="contact-link" onclick="copyEmail()">Email</button>
-      <button class="contact-link">+46 76 260 3087</button>
-      <a href="https://linkedin.com/in/mostafa-nouri-a66600328" target="_blank" class="contact-link">LinkedIn</a>
+      <div class="contact-wrapper">
+        <button class="contact-link" onclick="copyText('mostafanouri0710@gmail.com', this)">Email</button>
+        <span class="copy-indicator"><span data-lang="sv">Kopierat!</span><span data-lang="en">Copied!</span></span>
+      </div>
+      <div class="contact-wrapper">
+        <button class="contact-link" onclick="copyText('+46762603087', this)">+46 76 260 3087</button>
+        <span class="copy-indicator"><span data-lang="sv">Kopierat!</span><span data-lang="en">Copied!</span></span>
+      </div>
+      <a href="https://linkedin.com/in/mostafa-nouri-a66600328" target="_blank" class="contact-link" style="text-decoration:none;">LinkedIn</a>
     </div>
   </div>
 
   <div class="hero-visual">
-    <div class="profile-container">
-      <img src="mostafapfp.jpg" alt="Mostafa Nouri" class="profile-img">
-    </div>
+    <img src="mostafapfp.jpg" alt="Mostafa" class="profile-img">
   </div>
 </header>
 
 <section id="projects">
-  <div class="section-label" data-lang="sv">Vad jag gör</div>
-  <div class="section-label" data-lang="en">What I do</div>
   <h2 data-lang="sv">Utvalda Projekt</h2>
   <h2 data-lang="en">Selected Projects</h2>
   
   <div class="project-item">
     <div class="image-grid">
-      <div class="img-wrapper main-feature"><img src="laddningsstaion med plattor .gif"></div>
-      <div class="img-wrapper sub-feature"><img src="PCB model 2.2mm v4.png"></div>
-      <div class="img-wrapper sub-feature"><img src="PCB model 2.2mm v4 1.png"></div>
+      <div class="main-feature"><img src="laddningsstaion med plattor .gif"></div>
+      <div class="sub-feature"><img src="PCB model 2.2mm v4.png"></div>
+      <div class="sub-feature"><img src="PCB model 2.2mm v4 1.png"></div>
     </div>
     <div class="project-info">
       <h3 class="project-title">Drone Charging Station</h3>
-      <p data-lang="sv">Att få en drönare att landa är en sak, men att få den att ladda helt utan mänsklig hjälp är den riktiga utmaningen. I det här projektet bygger jag autonoma laddningsstationer för industriellt bruk. Jag ansvarar för hela den tekniska arkitekturen – från det mekaniska chassit till det specialbyggda pogo-pin-systemet som ser till att kraftöverföringen sker säkert och effektivt varje gång.</p>
-      <p data-lang="en">Landing a drone is one thing, but making it charge without any human assistance is the real challenge. In this project, I am building autonomous charging stations for industrial use. I handle the entire technical architecture – from the mechanical chassis to the custom-built pogo-pin system that ensures safe and efficient power transfer every single time.</p>
+      <p data-lang="sv">Här skapar jag en helt autonom dockningsstation för drönare. Utmaningen ligger i att kombinera mekanisk precision med säker kraftöverföring. Jag har designat hela systemet från grunden, inklusive det pogo-pin-baserade laddningsgränssnittet, för att möjliggöra 24/7-drift utan mänsklig inblandning.</p>
+      <p data-lang="en">I am creating a fully autonomous docking station for drones. The challenge lies in combining mechanical precision with safe power transfer. I've designed the entire system from scratch, including the pogo-pin charging interface, to enable 24/7 operation without human intervention.</p>
     </div>
   </div>
 
   <div class="project-item">
     <div class="project-info">
-      <h3 class="project-title">Sustainable Charge UF</h3>
-      <p data-lang="sv">Idén var enkel men kraftfull: varför slänga fungerande battericeller bara för att en e-cigarett är slut? Som VD för Sustainable Charge UF ledde jag arbetet med att ta fram handgjorda powerbanks av återvunnet material. Det här projektet bevisade att hållbarhet och teknik kan gå hand i hand, och resulterade i hela fem utmärkelser, bland annat en silverplats i SM för Ung Företagsamhet.</p>
-      <p data-lang="en">The idea was simple yet powerful: why throw away perfectly good battery cells just because an e-cigarette is empty? As CEO of Sustainable Charge UF, I led the development of handcrafted power banks made from recycled materials. This project proved that sustainability and technology can work together, resulting in five awards, including a silver medal at the Swedish national finals.</p>
+      <h3 class="project-title">Sustainable Charge</h3>
+      <p data-lang="sv">Mitt mål var att minska e-avfallet genom att ge nytt liv åt battericeller från kasserade e-cigaretter. I detta projekt ansvarade jag för att extrahera och testa batterierna för att sedan bygga in dem i högpresterande powerbanks. Arbetet belönades med guld i en nationell innovationstävling tack vare sitt cirkulära tänk och tekniska genomförande.</p>
+      <p data-lang="en">My goal was to reduce e-waste by repurposing battery cells from discarded e-cigarettes. In this project, I extracted and tested cells to integrate them into high-performance power banks. The work won gold in a national innovation competition for its circular approach and technical execution.</p>
       <br>
       <a href="https://ungainnovatorer.se/vinnare/sustainable-charge-powerbank" target="_blank" style="color:var(--accent); text-decoration:none; font-weight:bold;">
-        <span data-lang="sv">Se vinnarintervjun här →</span>
-        <span data-lang="en">View winner interview →</span>
+        <span data-lang="sv">Läs om vinsten hos Unga Innovatörer →</span>
+        <span data-lang="en">Read about the national win →</span>
       </a>
     </div>
     <div class="image-grid">
-      <div class="img-wrapper main-feature"><img src="power bank animation.gif"></div>
-      <div class="img-wrapper sub-feature"><img src="image_c21437.png"></div>
-      <div class="img-wrapper sub-feature"><img src="image_c21433.png"></div>
+      <div class="main-feature"><img src="power bank animation.gif"></div>
+      <div class="sub-feature"><img src="image_c21437.png"></div>
+      <div class="sub-feature"><img src="image_c21433.png"></div>
     </div>
   </div>
 </section>
 
 <section style="background: var(--surface);">
-  <div class="section-label" data-lang="sv">Erkännanden</div>
-  <div class="section-label" data-lang="en">Recognitions</div>
   <h2 data-lang="sv">Utmärkelser</h2>
   <h2 data-lang="en">Awards</h2>
   <div class="awards-track">
-    <div class="award-card">🥈 <b data-lang="sv">2:a plats: Årets Innovatör (Sverige)</b><b data-lang="en">2nd Place: Innovator of the Year (Sweden)</b><br><small>Unga Innovatörer 2025</small></div>
-    <div class="award-card">🥈 <b data-lang="sv">2:a plats: Årets Innovatör (Sthlm)</b><b data-lang="en">2nd Place: Innovator of the Year (Stockholm)</b><br><small>UF 2025</small></div>
-    <div class="award-card">🥈 <b data-lang="sv">2:a plats: Årets Hantverkare</b><b data-lang="en">2nd Place: Craftsperson of the Year</b><br><small>UF 2025</small></div>
-    <div class="award-card">🥉 <b data-lang="sv">3:e plats: Årets Nytänkare</b><b data-lang="en">3rd Place: Thinker of the Year</b><br><small>UF 2025</small></div>
-    <div class="award-card">🥉 <b data-lang="sv">3:e plats: Social Hållbarhet</b><b data-lang="en">3rd Place: Social Sustainability</b><br><small>UF 2025</small></div>
+    <div class="award-card"><h4>🥈 <span data-lang="sv">2:a Plats</span><span data-lang="en">2nd Place</span></h4><p data-lang="sv">Årets Innovatör (Sverige) - Unga Innovatörer 2025</p><p data-lang="en">Innovator of the Year (Sweden) - Unga Innovatörer 2025</p></div>
+    <div class="award-card"><h4>🥈 <span data-lang="sv">2:a Plats</span><span data-lang="en">2nd Place</span></h4><p data-lang="sv">Årets Innovatör (Stockholm) - UF 2025</p><p data-lang="en">Innovator of the Year (Stockholm) - UF 2025</p></div>
+    <div class="award-card"><h4>🥈 <span data-lang="sv">2:a Plats</span><span data-lang="en">2nd Place</span></h4><p data-lang="sv">Årets Hantverkare - UF 2025</p><p data-lang="en">Craftsperson of the Year - UF 2025</p></div>
+    <div class="award-card"><h4>🥉 <span data-lang="sv">3:e Plats</span><span data-lang="en">3rd Place</span></h4><p data-lang="sv">Årets Nytänkare - UF 2025</p><p data-lang="en">Thinker of the Year - UF 2025</p></div>
+    <div class="award-card"><h4>🥉 <span data-lang="sv">3:e Plats</span><span data-lang="en">3rd Place</span></h4><p data-lang="sv">Social Hållbarhet - UF 2025</p><p data-lang="en">Social Sustainability - UF 2025</p></div>
   </div>
 </section>
 
-<section style="text-align: center;">
-  <h2 data-lang="sv">Vill du veta mer?</h2>
-  <h2 data-lang="en">Want to know more?</h2>
-  <p style="margin-bottom: 30px; color: var(--muted);" data-lang="sv">Jag letar alltid efter nya spännande utmaningar inom hårdvara och teknik.</p>
-  <p style="margin-bottom: 30px; color: var(--muted);" data-lang="en">I'm always looking for new exciting challenges in hardware and engineering.</p>
-  <a href="Mostafa_Nouri_CV_English (1).pdf" download class="btn-cv">
-    <span data-lang="sv">Ladda ner mitt CV (PDF)</span>
-    <span data-lang="en">Download my CV (PDF)</span>
+<footer style="padding: 60px 5%; text-align: center; border-top: 1px solid var(--border);">
+  <a href="Mostafa_Nouri_CV_English (1).pdf" download class="contact-link" style="font-size: 18px; border: 1px solid var(--accent); padding: 10px 25px; border-radius: 5px; color: var(--accent);">
+    <span data-lang="sv">Ladda ner CV (PDF)</span>
+    <span data-lang="en">Download CV (PDF)</span>
   </a>
-</section>
-
-<footer style="padding: 50px 5%; text-align: center; color: var(--muted); border-top: 1px solid var(--border); font-size: 13px;">
-  Mostafa Nouri · 2026
+  <p style="margin-top: 30px; font-size: 12px; color: var(--muted);">Mostafa Nouri © 2026</p>
 </footer>
 
 <script>
@@ -308,9 +217,11 @@
     document.getElementById('btn-en').classList.toggle('active', lang === 'en');
   }
 
-  function copyEmail() {
-    navigator.clipboard.writeText('mostafanouri0710@gmail.com');
-    alert('Email kopierad!');
+  function copyText(text, btn) {
+    navigator.clipboard.writeText(text);
+    const indicator = btn.nextElementSibling;
+    indicator.classList.add('show');
+    setTimeout(() => indicator.classList.remove('show'), 2000);
   }
 </script>
 
